@@ -1,329 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      How to choose the right roofing contractor for your needs? | Russell
+      Exterior
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://www.russellexterior.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/RussellExterior?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+            >Russell Exterior</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section
+          style="
+            background-image: url(https://lh3.googleusercontent.com/geougc/AF1QipO7bcEVLQjJyGB1OD4R97PCkm2_-bMkVzhQYnz7=h400-no);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: 0%;
+            min-height: 350px;
+            padding: 20px;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.397);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+          class="head"
+        >
+          <h1>How to choose the right roofing contractor for your needs?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>How to choose the right roofing contractor for your needs? | Russell Exterior</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://www.russellexterior.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/RussellExterior?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith">Russell Exterior</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section style="background-image: url(https://lh3.googleusercontent.com/geougc/AF1QipO7bcEVLQjJyGB1OD4R97PCkm2_-bMkVzhQYnz7=h400-no); background-attachment: fixed; background-size: cover; background-position:0%; min-height: 350px; padding: 20px; box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.397); color: white; display:flex; flex-direction: column; justify-content: center" class="head">
-        <h1>How to choose the right roofing contractor for your needs?</h1>
-      </section>
-
-      <section>
-          <p>It is crucial to choose the right roofing contractor for your needs. Not all roofing contractors are the same. Russell Exterior is a professional roofing contractor in Fort Smith, AR. We pride ourselves on our quality artistry and customer service. We offer a wide range of roofing services, from repairs to replacements, and we always work closely with our clients to ensure they are happy with the final results. Russell Exterior is a roofing contractor in Fort Smith, AR. We specialize in roofing repair, installation, and replacement. We have years of experience in the industry and are dedicated to providing our clients with quality artistry.</p>
-          <p>Russell Exterior is a professional roofing contractor in Fort Smith, AR. We provide top-quality roofing services to homeowners and businesses in the area. Our team is experienced and qualified to handle any roofing project, big or small. We offer a wide range of roofing services, including installation, repair, and replacement.</p>
-          <br>
+        <section>
+          <p>
+            It is crucial to choose the right roofing contractor for your needs.
+            Not all roofing contractors are the same. Russell Exterior is a
+            professional roofing contractor in Fort Smith, AR. We pride
+            ourselves on our quality artistry and customer service. We offer a
+            wide range of roofing services, from repairs to replacements, and we
+            always work closely with our clients to ensure they are happy with
+            the final results. Russell Exterior is a roofing contractor in Fort
+            Smith, AR. We specialize in roofing repair, installation, and
+            replacement. We have years of experience in the industry and are
+            dedicated to providing our clients with quality artistry.
+          </p>
+          <p>
+            Russell Exterior is a professional roofing contractor in Fort Smith,
+            AR. We provide top-quality roofing services to homeowners and
+            businesses in the area. Our team is experienced and qualified to
+            handle any roofing project, big or small. We offer a wide range of
+            roofing services, including installation, repair, and replacement.
+          </p>
+          <br />
           <div>
-            <iframe width="100%" height="500" src="https://www.youtube.com/embed/gni9JCjICNk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/gni9JCjICNk"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <a class="button-link"
-                href="https://www.russellexterior.com/how-to-choose-the-right-roofing-contractor-for-your-needs">Read Post</a>
-      </section>
+          <a
+            class="button-link"
+            href="https://www.russellexterior.com/how-to-choose-the-right-roofing-contractor-for-your-needs"
+            >Read Post</a
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Quality Roofing Services for Homeowners and Businesses.</h2>
 
           <div class="two-col">
             <div>
-                <p>If you require a quality <a href="https://www.russellexterior.com/roofing">roofing</a> contractor in Fort Smith, AR, Russell Exterior is the company to call. We specialize in residential and commercial roofing, and we take pride in our artistry.</p>
-                <p>Russell Exterior is a top-rated roofing contractor in Fort Smith, AR. We provide quality roofing services to homeowners and businesses in the area. Our team of experienced professionals is dedicated to providing you with the best possible service. We offer a wide range of roofing services, including installation, repair, and replacement.</p>
-                <p>Russell Exterior is a professional roofing contractor that serves the Fort Smith, AR area. We are experts in roofing, from a new installation to repairs and maintenance. We pride ourselves on our high-quality artistry and customer service.</p>
+              <p>
+                If you require a quality
+                <a href="https://www.russellexterior.com/roofing">roofing</a>
+                contractor in Fort Smith, AR, Russell Exterior is the company to
+                call. We specialize in residential and commercial roofing, and
+                we take pride in our artistry.
+              </p>
+              <p>
+                Russell Exterior is a top-rated roofing contractor in Fort
+                Smith, AR. We provide quality roofing services to homeowners and
+                businesses in the area. Our team of experienced professionals is
+                dedicated to providing you with the best possible service. We
+                offer a wide range of roofing services, including installation,
+                repair, and replacement.
+              </p>
+              <p>
+                Russell Exterior is a professional roofing contractor that
+                serves the Fort Smith, AR area. We are experts in roofing, from
+                a new installation to repairs and maintenance. We pride
+                ourselves on our high-quality artistry and customer service.
+              </p>
             </div>
             <div>
-                <img style="height: 440px" src="https://lh3.googleusercontent.com/geougc/AF1QipNsJSQLFi3BAy9RRwNWSk-CclHzXj9-qZLjYvwW=h400-no" alt="Roofing Contractor Fort Smith, AR">
+              <img
+                style="height: 440px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipNsJSQLFi3BAy9RRwNWSk-CclHzXj9-qZLjYvwW=h400-no"
+                alt="Roofing Contractor Fort Smith, AR"
+              />
             </div>
           </div>
-          <p>If you require a quality roofing contractor, then Russell Exterior is the company for you. We serve the Fort Smith, AR area and offer a wide range of services, from repairs to replacements. We have a team of experienced professionals dedicated to ensuring your satisfaction.</p>
-          <p>Looking for a qualified roofing contractor in Fort Smith, AR? Look no further than Russell Exterior. We're experienced professionals who take pride in our work, and we always put our customers first. We offer a wide range of roofing services, from repairs to installations, so you can be sure we'll have the perfect solution for your needs. Plus, we're always available to answer any questions you may have.</p>
-          <a class="button-link"
-                href="https://www.russellexterior.com/">Visit Us</a>
-      </section>
+          <p>
+            If you require a quality roofing contractor, then Russell Exterior
+            is the company for you. We serve the Fort Smith, AR area and offer a
+            wide range of services, from repairs to replacements. We have a team
+            of experienced professionals dedicated to ensuring your
+            satisfaction.
+          </p>
+          <p>
+            Looking for a qualified roofing contractor in Fort Smith, AR? Look
+            no further than Russell Exterior. We're experienced professionals
+            who take pride in our work, and we always put our customers first.
+            We offer a wide range of roofing services, from repairs to
+            installations, so you can be sure we'll have the perfect solution
+            for your needs. Plus, we're always available to answer any questions
+            you may have.
+          </p>
+          <a class="button-link" href="https://www.russellexterior.com/"
+            >Visit Us</a
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Expert Roofing Contractor in Fort Smith.</h2>
-          <p>Russell Exterior is a professional roofing contractor who has been providing quality roofing services to the Fort Smith, AR area for many years. We are experts in all aspects of roofing, from repairs to installations, and we always strive to provide our clients with the best possible service.</p>
-          <p>Russell Exterior is a trusted roofing contractor in Fort Smith, AR. We specialize in roofing repairs and installations, and we always put the customer first. We understand that your home is your most significant investment, and we want to help you protect it with a quality roof.</p>
-          <p>Looking for a reliable and experienced roofing contractor in Fort Smith, AR? Look no further than Russell Exterior. We offer a wide range of roofing services to meet your needs, from repairs to new installations. We're dedicated to providing quality artistry and superior customer service.</p>
-          <p>Russell Exterior is a roofing contractor in Fort Smith, AR. We have years of experience in the roofing industry, and we're dedicated to providing our customers with quality roofing services. We offer a wide range of roofing services, including roof repairs, roof replacements, and roof inspections. We also offer a variety of roofing materials, including asphalt shingles, metal roofing, and tile roofing.</p>
-      </section>
+          <p>
+            Russell Exterior is a professional roofing contractor who has been
+            providing quality roofing services to the Fort Smith, AR area for
+            many years. We are experts in all aspects of roofing, from repairs
+            to installations, and we always strive to provide our clients with
+            the best possible service.
+          </p>
+          <p>
+            Russell Exterior is a trusted roofing contractor in Fort Smith, AR.
+            We specialize in roofing repairs and installations, and we always
+            put the customer first. We understand that your home is your most
+            significant investment, and we want to help you protect it with a
+            quality roof.
+          </p>
+          <p>
+            Looking for a reliable and experienced roofing contractor in Fort
+            Smith, AR? Look no further than Russell Exterior. We offer a wide
+            range of roofing services to meet your needs, from repairs to new
+            installations. We're dedicated to providing quality artistry and
+            superior customer service.
+          </p>
+          <p>
+            Russell Exterior is a roofing contractor in Fort Smith, AR. We have
+            years of experience in the roofing industry, and we're dedicated to
+            providing our customers with quality roofing services. We offer a
+            wide range of roofing services, including roof repairs, roof
+            replacements, and roof inspections. We also offer a variety of
+            roofing materials, including asphalt shingles, metal roofing, and
+            tile roofing.
+          </p>
+        </section>
 
-      <section>
-        <h2>Quality Roofing Services for Homeowners and Businesses.</h2>
+        <section>
+          <h2>Quality Roofing Services for Homeowners and Businesses.</h2>
 
-        <div class="two-col">
+          <div class="two-col">
             <div>
-                <img style="height: 440px" src="https://lh3.googleusercontent.com/geougc/AF1QipPPs_TMIrNOWxKS9rPpD6JKDi1c0qTzveionT8J=h400-no" alt="Roofing Contractor Fort Smith, AR">
+              <img
+                style="height: 440px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipPPs_TMIrNOWxKS9rPpD6JKDi1c0qTzveionT8J=h400-no"
+                alt="Roofing Contractor Fort Smith, AR"
+              />
             </div>
-            <div style="display:flex; flex-direction: column; justify-content: center">
-                <p>When looking for a roofing contractor, it's essential to make sure they are licensed and insured. Ask to see their license and insurance certificates, and make sure that the contractor's name is listed on both. You can also check with your state licensing board or the Better Business Bureau to verify the contractor's license and insurance.</p> 
-                <p>Russell Exterior is a roofing contractor in Fort Smith, Arkansas. We provide quality roofing services to residential and commercial clients throughout the area. Our team has the experience and expertise to handle any roofing project, big or small. We offer a wide range of roofing services, including installation, repair, and replacement. We also specialize in hail damage repair and replacement.</p>
-            </div>          
-        </div> 
-        <br>       
-        <p>If you need a roofing contractor in Fort Smith, AR, Russell Exterior is the company for you. We have years of experience in the industry, and we're dedicated to providing our clients with quality artistry and superior customer service. We offer a wide range of roofing services, so we're sure to have something to meet your needs.</p> 
-        <p>Russell Exterior is a roofing contractor in Fort Smith, AR. We provide roofing services to both residential and commercial clients. We have over years of experience in the roofing industry, and we are dedicated to providing our clients with high-quality roofing services.</p>
-    </section>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <p>
+                When looking for a roofing contractor, it's essential to make
+                sure they are licensed and insured. Ask to see their license and
+                insurance certificates, and make sure that the contractor's name
+                is listed on both. You can also check with your state licensing
+                board or the Better Business Bureau to verify the contractor's
+                license and insurance.
+              </p>
+              <p>
+                Russell Exterior is a roofing contractor in Fort Smith,
+                Arkansas. We provide quality roofing services to residential and
+                commercial clients throughout the area. Our team has the
+                experience and expertise to handle any roofing project, big or
+                small. We offer a wide range of roofing services, including
+                installation, repair, and replacement. We also specialize in
+                hail damage repair and replacement.
+              </p>
+            </div>
+          </div>
+          <br />
+          <p>
+            If you need a roofing contractor in Fort Smith, AR, Russell Exterior
+            is the company for you. We have years of experience in the industry,
+            and we're dedicated to providing our clients with quality artistry
+            and superior customer service. We offer a wide range of roofing
+            services, so we're sure to have something to meet your needs.
+          </p>
+          <p>
+            Russell Exterior is a roofing contractor in Fort Smith, AR. We
+            provide roofing services to both residential and commercial clients.
+            We have over years of experience in the roofing industry, and we are
+            dedicated to providing our clients with high-quality roofing
+            services.
+          </p>
+        </section>
 
-      <section>
-          <h2>Make sure the contractor has a good reputation for quality artistry.</h2>
-          <p>Russell Exterior is a trusted roofing contractor in Fort Smith, AR. We provide quality <a href="https://www.russellexterior.com/our-services">roofing services</a> to homeowners and businesses in the area. Our team of experienced professionals is dedicated to providing you with the best possible service. We take pride in our artistry and always aim to exceed your expectations.</p>
-          <p>Looking for a reliable and experienced roofing contractor in Fort Smith, AR? Look no further than Russell Exterior! We offer a wide range of roofing services to meet your needs, from repairs to replacements. We have over years of experience in the industry, so you can rest assured that we'll get the job done right.</p>
-          <p>Russell Exterior is a roofing contractor in Fort Smith, AR. We provide high-quality roofing services to our clients, dedicated to meeting their needs. We have years of experience in the industry, and we are committed to providing the best possible service to our clients.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=2024418528432130108">Find Us Here!</a>
-      </section>
+        <section>
+          <h2>
+            Make sure the contractor has a good reputation for quality artistry.
+          </h2>
+          <p>
+            Russell Exterior is a trusted roofing contractor in Fort Smith, AR.
+            We provide quality
+            <a href="https://www.russellexterior.com/our-services"
+              >roofing services</a
+            >
+            to homeowners and businesses in the area. Our team of experienced
+            professionals is dedicated to providing you with the best possible
+            service. We take pride in our artistry and always aim to exceed your
+            expectations.
+          </p>
+          <p>
+            Looking for a reliable and experienced roofing contractor in Fort
+            Smith, AR? Look no further than Russell Exterior! We offer a wide
+            range of roofing services to meet your needs, from repairs to
+            replacements. We have over years of experience in the industry, so
+            you can rest assured that we'll get the job done right.
+          </p>
+          <p>
+            Russell Exterior is a roofing contractor in Fort Smith, AR. We
+            provide high-quality roofing services to our clients, dedicated to
+            meeting their needs. We have years of experience in the industry,
+            and we are committed to providing the best possible service to our
+            clients.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=2024418528432130108"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.6167385255276!2d-94.4207752847505!3d35.34033768027515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1c182decffea883c!2sRussell%20Exterior!5e0!3m2!1sen!2sph!4v1649217714706!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        Roofing%20Contractor%20Fort%20Smith,%20AR</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.6167385255276!2d-94.4207752847505!3d35.34033768027515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1c182decffea883c!2sRussell%20Exterior!5e0!3m2!1sen!2sph!4v1649217714706!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+            Roofing%20Contractor%20Fort%20Smith,%20AR</iframe
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Things to do in Fort Smith, AR</h2>
-          <iframe src="https://www.tripadvisor.com.ph/Attractions-g60816-Activities-Fort_Smith_Arkansas.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g60816-Activities-Fort_Smith_Arkansas.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
           <h2>Fort Smith, AR News</h2>
-          <iframe src="https://www.5newsonline.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.5newsonline.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.russellexterior.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.russellexterior.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/russellexterior-03-22/"
+            >https://rank-fortress-digital-agency.github.io/russellexterior-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://russellexterior-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://russellexterior-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://lucky-taffy-78a106.netlify.app/"
+            >https://lucky-taffy-78a106.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+            >https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith</a
+          ><br />
+        </section>
+      </div>
 
-          <a target="_bLank" href="#">#</a><br>
-          <a target="_bLank" href="#">#</a><br>
-          <a target="_bLank" href="#">#</a>
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li>
+              <a href="https://google.com/maps/?cid=2024418528432130108"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UClHYdfVPZ4SChEyry9Oha4Q"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li>
+              <a
+                href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+                >Google Site</a
+              >
+            </li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
 
-      </section>
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://www.russellexterior.com/">Main</a></li>
+            <li><a href="https://g.page/RussellExterior?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=2024418528432130108">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UClHYdfVPZ4SChEyry9Oha4Q">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.russellexterior.com/">Main</a></li>
-          <li><a href="https://g.page/RussellExterior?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
